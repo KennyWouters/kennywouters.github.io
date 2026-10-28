@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projets — Kenny Wouters</title>
+  <meta name="description" content="Projets de développement réalisés par Kenny Wouters.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="brand" href="index.html">Kenny Wouters</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="projets.html" aria-current="page">Projets</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">Projets</h1>
+      <p class="lead">Les applications que j'ai conçues et développées.</p>
+
+      <div class="projects">
+
+        <!--
+          Pour ajouter un projet : copier un bloc <article class="project"> ... </article>,
+          le coller au-dessus (le plus récent en premier) et remplacer le contenu.
+          Le logo ou la capture va dans le dossier projets/.
+        -->
+
+        <article class="project">
+          <div class="project-visual" style="background:#111">
+            <img src="projets/skate-tricks-logo.png" alt="Logo Skate Tricks">
+          </div>
+          <div class="project-body">
+            <h2>Skate Tricks <span class="status">En ligne</span></h2>
+            <p class="meta"><span>Application web mobile (PWA)</span><span>Projet personnel</span></p>
+            <p>Une application pour progresser en skate à son rythme et rouler avec ses amis.
+              Pensée d'abord pour le téléphone, elle s'installe en un geste depuis le navigateur.</p>
+            <ul class="features">
+              <li>Progression sur 97 figures, avec des étapes claires et un niveau pour chacune.</li>
+              <li>Routines d'échauffement chronométrées et statistiques.</li>
+              <li>Jeu de SKATE entre amis, avec l'app comme arbitre.</li>
+              <li>Sessions et événements, messagerie avec notifications.</li>
+              <li>Skateshop avec points, avatars et planches à personnaliser, mini-jeu Skate Run.</li>
+            </ul>
+            <ul class="tags">
+              <li>React Native</li><li>Expo</li><li>Supabase</li><li>PWA</li><li>Cloudflare Pages</li><li>Jest</li>
+            </ul>
+            <div class="actions">
+              <a class="btn" href="https://skateapp.pages.dev/presentation" target="_blank" rel="noopener">Voir la présentation</a>
+              <a class="btn secondary" href="https://skateapp.pages.dev/" target="_blank" rel="noopener">Ouvrir l'app</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project upcoming">
+          <div class="project-body">
+            <p>D'autres projets arrivent bientôt…</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Kenny Wouters · Liège, Belgique</div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

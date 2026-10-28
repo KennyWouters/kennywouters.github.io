@@ -149,7 +149,8 @@ footer {
 
 @media (max-width: 600px) {
   header .container { height: auto; flex-direction: column; padding-top: 12px; padding-bottom: 12px; gap: 8px; }
-  nav a { padding: 6px 10px; }
+  nav ul { flex-wrap: wrap; justify-content: center; gap: 2px; }
+  nav a { padding: 6px 8px; font-size: .9rem; }
   .hero { flex-direction: column; text-align: center; }
   .actions { justify-content: center; }
   .hero h1 { font-size: 1.8rem; }
@@ -221,3 +222,32 @@ a.card h3 { color: var(--accent); }
 .viewer-bar button:hover { background: var(--accent-soft); color: var(--text); }
 .viewer-body { overflow: auto; padding: 16px; background: var(--bg); }
 .viewer-body img { display: block; width: 100%; height: auto; background: #fff; border-radius: 4px; }
+
+/* Projets */
+.projects { display: grid; gap: 24px; }
+.project {
+  display: grid; grid-template-columns: 240px 1fr;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.project-visual { display: grid; place-items: center; padding: 24px; min-height: 200px; }
+.project-visual img { width: 140px; height: 140px; object-fit: contain; }
+.project-body { padding: 24px; }
+.project-body h2 { margin: 0 0 4px; font-size: 1.3rem; }
+.project-body .meta { margin-bottom: 12px; }
+.project-body p { margin: 0 0 12px; }
+.project-body ul.features { margin: 0 0 16px; padding-left: 20px; color: var(--muted); }
+.project-body .tags { margin-bottom: 20px; }
+.project-body .actions { margin-top: 0; }
+.status {
+  display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 10px;
+  border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-left: 8px;
+  vertical-align: middle;
+}
+.project.upcoming { border-style: dashed; grid-template-columns: 1fr; }
+.project.upcoming .project-body { color: var(--muted); text-align: center; }
+
+@media (max-width: 640px) {
+  .project { grid-template-columns: 1fr; }
+  .project-visual { min-height: 160px; }
+}
