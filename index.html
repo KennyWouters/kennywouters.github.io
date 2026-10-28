@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kenny Wouters — Développeur web</title>
+  <meta name="description" content="Kenny Wouters, développeur web .NET / Blazor basé à Liège.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="brand" href="index.html">Kenny Wouters</a>
+      <nav>
+        <ul>
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div class="avatar" aria-hidden="true">KW</div>
+        <div>
+          <h1>Kenny Wouters</h1>
+          <p class="role">Développeur web · .NET / Blazor</p>
+          <p>Basé à Liège, en Belgique. Formé chez BeCode et certifié AWS Cloud Practitioner,
+            je développe des applications web avec .NET et Blazor. J'ai aussi une solide expérience
+            terrain en support informatique et en logistique.</p>
+        </div>
+      </section>
+
+      <div class="actions">
+        <a class="btn" href="cv.html">Voir mon CV</a>
+        <a class="btn secondary" href="contact.html">Me contacter</a>
+      </div>
+
+      <h2>En bref</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Développement web</h3>
+          <p>Applications web en Blazor / .NET, développées chez Roggemans Development.</p>
+        </div>
+        <div class="card">
+          <h3>Cloud</h3>
+          <p>Certifié AWS Cloud Practitioner depuis 2024.</p>
+        </div>
+        <div class="card">
+          <h3>Support informatique</h3>
+          <p>Deux ans comme technicien informatique et matériel bureautique à l'ESA Saint-Luc Liège.</p>
+        </div>
+      </div>
+
+      <h2>Compétences</h2>
+      <ul class="tags">
+        <li>C# / .NET</li>
+        <li>Blazor</li>
+        <li>HTML / CSS</li>
+        <li>JavaScript</li>
+        <li>AWS</li>
+        <li>Matériel &amp; réseaux (Cisco IT Essentials)</li>
+        <li>Arts graphiques</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Kenny Wouters · Liège, Belgique</div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

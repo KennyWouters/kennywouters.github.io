@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV — Kenny Wouters</title>
+  <meta name="description" content="CV de Kenny Wouters : expériences, formations, certificats et langues.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="brand" href="index.html">Kenny Wouters</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="cv.html" aria-current="page">CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">Curriculum vitae</h1>
+      <p class="lead">Liège, Belgique · Permis B</p>
+
+      <div class="actions no-print" style="margin-top:0;margin-bottom:8px">
+        <button class="btn secondary" onclick="window.print()">Imprimer / PDF</button>
+      </div>
+
+      <h2>Expériences professionnelles</h2>
+      <ol class="timeline">
+        <li>
+          <div class="date">10/2024 – 12/2024</div>
+          <h3>Web developer · Blazor / .NET</h3>
+          <p>Roggemans Development</p>
+        </li>
+        <li>
+          <div class="date">06/2023 – 12/2023</div>
+          <h3>Préparateur de commandes</h3>
+          <p>Coopervision</p>
+        </li>
+        <li>
+          <div class="date">04/2019 – 05/2019</div>
+          <h3>Magasinier</h3>
+          <p>ECHub</p>
+        </li>
+        <li>
+          <div class="date">12/2011 – 12/2013</div>
+          <h3>Technicien informatique et matériel bureautique</h3>
+          <p>École Supérieure des Arts Saint-Luc Liège</p>
+        </li>
+      </ol>
+
+      <h2>Formations</h2>
+      <ol class="timeline">
+        <li>
+          <div class="date">02/2024 – 09/2024</div>
+          <h3>Développeur web</h3>
+          <p>BeCode</p>
+        </li>
+        <li>
+          <div class="date">01/2010 – 02/2010</div>
+          <h3>Cisco IT Essentials</h3>
+          <p>Technobel</p>
+        </li>
+      </ol>
+
+      <h2>Études</h2>
+      <ol class="timeline">
+        <li>
+          <div class="date">09/2007 – 06/2008</div>
+          <h3>Secondaire technique de qualification, 2ᵉ degré · Arts graphiques – image</h3>
+          <p>INRACI</p>
+        </li>
+      </ol>
+
+      <h2>Certificats</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>AWS Cloud Practitioner</h3>
+          <p>Amazon Web Services · 09/2024</p>
+        </div>
+        <div class="card">
+          <h3>VCA sécurité de base</h3>
+          <p>Technifutur · 12/2021</p>
+        </div>
+        <div class="card">
+          <h3>Cisco IT Essentials</h3>
+          <p>Certificat · 03/2010</p>
+        </div>
+      </div>
+
+      <h2>Langues</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Français</h3>
+          <p>C2 · Expert</p>
+        </div>
+        <div class="card">
+          <h3>Anglais</h3>
+          <p>B1 · Intermédiaire</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Kenny Wouters · Liège, Belgique</div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
