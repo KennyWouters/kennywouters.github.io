@@ -1,6 +1,6 @@
 # Portfolio — Kenny Wouters
 
-Site vitrine statique (HTML/CSS) publié avec GitHub Pages : https://exokayn.github.io/portfolio/
+Site vitrine statique (HTML/CSS) publié avec GitHub Pages : https://kennywouters.github.io/
 
 - `index.html` — accueil / présentation
 - `cv.html` — CV (imprimable en PDF)
