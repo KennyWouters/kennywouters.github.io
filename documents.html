@@ -25,48 +25,80 @@
   <main>
     <div class="container">
       <h1 class="page-title">Documents</h1>
-      <p class="lead">Attestations de formation et certificats. Cliquez sur un document pour l'ouvrir en taille réelle.</p>
+      <p class="lead">Attestations de formation et certificats. Cliquez sur un document pour l'afficher en grand.</p>
 
       <div class="docs">
-        <a class="doc" href="documents/attestation-becode-junior-developer.pdf" target="_blank" rel="noopener">
+        <a class="doc" href="documents/attestation-becode-junior-developer.jpg" data-pdf="documents/attestation-becode-junior-developer.pdf">
           <img src="documents/attestation-becode-junior-developer.png" alt="Attestation BeCode Junior Developer" loading="lazy">
           <div>
             <h3>Junior Developer</h3>
             <p>BeCode Liège · 2024</p>
-            <span class="more">Ouvrir le PDF →</span>
+            <span class="more">Afficher →</span>
           </div>
         </a>
-        <a class="doc" href="documents/screening-technicien-maintenance-forem.pdf" target="_blank" rel="noopener">
+        <a class="doc" href="documents/screening-technicien-maintenance-forem.jpg" data-pdf="documents/screening-technicien-maintenance-forem.pdf">
           <img src="documents/screening-technicien-maintenance-forem.png" alt="Screening Forem Technicien de maintenance en informatique" loading="lazy">
           <div>
             <h3>Screening Technicien de maintenance en informatique</h3>
             <p>Forem · 11/2025 · profil de compétences validé</p>
-            <span class="more">Ouvrir le PDF →</span>
+            <span class="more">Afficher →</span>
           </div>
         </a>
-        <a class="doc" href="documents/cisco-ccna-exploration-network-fundamentals.pdf" target="_blank" rel="noopener">
+        <a class="doc" href="documents/cisco-ccna-exploration-network-fundamentals.jpg" data-pdf="documents/cisco-ccna-exploration-network-fundamentals.pdf">
           <img src="documents/cisco-ccna-exploration-network-fundamentals.png" alt="Cisco CCNA Exploration Network Fundamentals" loading="lazy">
           <div>
             <h3>CCNA Exploration : Network Fundamentals</h3>
             <p>Cisco Networking Academy · 04/2010</p>
-            <span class="more">Ouvrir le PDF →</span>
+            <span class="more">Afficher →</span>
           </div>
         </a>
-        <a class="doc" href="documents/cisco-it-essentials.jpg" target="_blank" rel="noopener">
+        <a class="doc" href="documents/cisco-it-essentials.jpg">
           <img src="documents/cisco-it-essentials-apercu.png" alt="Cisco IT Essentials : PC Hardware and Software" loading="lazy">
           <div>
             <h3>IT Essentials : PC Hardware and Software</h3>
             <p>Cisco Networking Academy · Technobel · 02/2010</p>
-            <span class="more">Ouvrir l'image →</span>
+            <span class="more">Afficher →</span>
           </div>
         </a>
       </div>
     </div>
   </main>
 
+  <dialog id="viewer" aria-label="Aperçu du document">
+    <div class="viewer-bar">
+      <strong id="viewer-title"></strong>
+      <a id="viewer-pdf" href="#" download>Télécharger le PDF</a>
+      <button type="button" id="viewer-close" aria-label="Fermer">✕</button>
+    </div>
+    <div class="viewer-body"><img id="viewer-img" alt=""></div>
+  </dialog>
+
   <footer>
     <div class="container">© <span id="year"></span> Kenny Wouters · Liège, Belgique</div>
   </footer>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Affiche le document dans une visionneuse plutôt que de l'ouvrir (ou le télécharger).
+    const viewer = document.getElementById("viewer");
+    const img = document.getElementById("viewer-img");
+    const pdf = document.getElementById("viewer-pdf");
+    document.querySelectorAll("a.doc").forEach(link => {
+      link.addEventListener("click", e => {
+        if (!viewer.showModal) return;
+        e.preventDefault();
+        const title = link.querySelector("h3").textContent;
+        document.getElementById("viewer-title").textContent = title;
+        img.src = link.getAttribute("href");
+        img.alt = title;
+        pdf.hidden = !link.dataset.pdf;
+        if (link.dataset.pdf) pdf.href = link.dataset.pdf;
+        viewer.showModal();
+      });
+    });
+    document.getElementById("viewer-close").addEventListener("click", () => viewer.close());
+    viewer.addEventListener("click", e => { if (e.target === viewer || e.target.classList.contains("viewer-body")) viewer.close(); });
+    viewer.addEventListener("close", () => { img.removeAttribute("src"); });
+  </script>
 </body>
 </html>

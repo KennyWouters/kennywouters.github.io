@@ -198,3 +198,26 @@ a.card h3 { color: var(--accent); }
 .doc div { padding: 16px; }
 .doc h3 { margin: 0 0 4px; font-size: 1rem; }
 .doc p { margin: 0 0 8px; color: var(--muted); font-size: .9rem; }
+
+/* Visionneuse de documents */
+#viewer {
+  width: min(960px, 100vw - 24px); max-height: calc(100vh - 24px);
+  padding: 0; border: none; border-radius: var(--radius);
+  background: var(--surface); color: var(--text);
+  display: none; flex-direction: column;
+}
+#viewer[open] { display: flex; }
+#viewer::backdrop { background: rgba(0, 0, 0, .75); }
+.viewer-bar {
+  display: flex; align-items: center; gap: 16px;
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+}
+.viewer-bar strong { flex: 1; font-size: .95rem; }
+.viewer-bar a { font-weight: 600; font-size: .9rem; text-decoration: none; white-space: nowrap; }
+.viewer-bar button {
+  background: none; border: none; color: var(--muted); font-size: 1.2rem;
+  cursor: pointer; padding: 4px 8px; border-radius: 6px;
+}
+.viewer-bar button:hover { background: var(--accent-soft); color: var(--text); }
+.viewer-body { overflow: auto; padding: 16px; background: var(--bg); }
+.viewer-body img { display: block; width: 100%; height: auto; background: #fff; border-radius: 4px; }
