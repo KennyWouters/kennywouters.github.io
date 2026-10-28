@@ -14,8 +14,24 @@
   --font-title: "Plus Jakarta Sans", var(--font-body);
 }
 
+:root { color-scheme: light; }
+
+/* Mode sombre : choisi avec le bouton, ou celui de l'appareil si aucun choix */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121518;
+  --surface: #1a1e22;
+  --text: #ece7df;
+  --muted: #a6a39d;
+  --accent: #5cc3b6;
+  --accent-soft: #1b3331;
+  --on-accent: #0b1c1b;
+  --border: #2a2f34;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg: #121518;
     --surface: #1a1e22;
     --text: #ece7df;
@@ -61,7 +77,15 @@ header .container {
   height: 64px;
 }
 .brand { font-weight: 700; text-decoration: none; color: var(--text); font-size: 1.1rem; }
+nav { margin-left: auto; }
 nav ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
+.theme-toggle {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 38px; height: 38px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  cursor: pointer;
+}
+.theme-toggle:hover { background: var(--accent-soft); color: var(--accent); }
 nav a {
   display: block;
   padding: 8px 14px;
@@ -163,8 +187,12 @@ footer {
 
 @media (max-width: 600px) {
   header .container { height: auto; flex-direction: column; padding-top: 12px; padding-bottom: 12px; gap: 8px; }
-  nav ul { flex-wrap: wrap; justify-content: center; gap: 2px; }
-  nav a { padding: 6px 8px; font-size: .9rem; }
+  header .container { position: relative; }
+  nav { margin-left: 0; }
+  .theme-toggle { position: absolute; top: 8px; right: 16px; width: 34px; height: 34px; }
+  nav { width: 100%; }
+  nav ul { flex-wrap: wrap; justify-content: center; gap: 0; }
+  nav a { padding: 6px 7px; font-size: .88rem; }
   .hero { flex-direction: column; text-align: center; gap: 20px; }
   .hero h1 { font-size: 1.8rem; }
   h1.page-title { font-size: 1.65rem; }
@@ -187,7 +215,7 @@ footer {
 }
 
 @media print {
-  header, footer, .actions, .no-print { display: none !important; }
+  header, footer, .actions, .no-print, .theme-toggle { display: none !important; }
   body { background: #fff; color: #000; }
   main { padding: 0; }
   .card { border-color: #ccc; }
