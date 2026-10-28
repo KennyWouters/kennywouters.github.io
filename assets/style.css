@@ -1,24 +1,29 @@
 :root {
-  --bg: #f7f7f5;
-  --surface: #ffffff;
-  --text: #1d1d1f;
-  --muted: #5f6368;
-  --accent: #2b6cb0;
-  --accent-soft: #e6eef8;
-  --border: #e3e3e0;
-  --radius: 12px;
+  /* Ton chaud « papier » plutôt qu'un blanc pur, accent bleu-vert profond */
+  --bg: #f4efe7;
+  --surface: #fbf8f3;
+  --text: #1d2228;
+  --muted: #5b5f66;
+  --accent: #0f6b6b;
+  --accent-soft: #dde9e5;
+  --on-accent: #ffffff;
+  --border: #e4dbcd;
+  --radius: 14px;
   --max: 880px;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-title: "Plus Jakarta Sans", var(--font-body);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #121316;
-    --surface: #1b1d21;
-    --text: #ececec;
-    --muted: #a0a4ab;
-    --accent: #6ea8ff;
-    --accent-soft: #1f2a3a;
-    --border: #2c2f35;
+    --bg: #121518;
+    --surface: #1a1e22;
+    --text: #ece7df;
+    --muted: #a6a39d;
+    --accent: #5cc3b6;
+    --accent-soft: #1b3331;
+    --on-accent: #0b1c1b;
+    --border: #2a2f34;
   }
 }
 
@@ -26,7 +31,7 @@
 
 body {
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -41,7 +46,8 @@ a { color: var(--accent); }
 
 /* Header / nav */
 header {
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -73,7 +79,8 @@ main { flex: 1; padding: 48px 0; }
 .hero { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
 .avatar {
   width: 120px; height: 120px; border-radius: 50%;
-  background: var(--accent); color: #fff;
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, #d9a441));
+  color: var(--on-accent);
   display: grid; place-items: center;
   font-size: 2.6rem; font-weight: 700; flex-shrink: 0;
 }
@@ -81,6 +88,7 @@ main { flex: 1; padding: 48px 0; }
 .hero .role { margin: 0 0 12px; color: var(--accent); font-weight: 600; font-size: 1.15rem; }
 .hero p { margin: 0; color: var(--muted); }
 
+h1, h2, h3, .brand, .avatar { font-family: var(--font-title); letter-spacing: -0.015em; }
 h1, h2, h3 { line-height: 1.25; text-wrap: balance; }
 p, li { text-wrap: pretty; }
 h2 { font-size: 1.4rem; margin: 48px 0 16px; }
@@ -110,7 +118,7 @@ a.link-more:hover { text-decoration: underline; }
 
 .btn {
   display: inline-block;
-  background: var(--accent); color: #fff;
+  background: var(--accent); color: var(--on-accent);
   padding: 10px 20px; border-radius: 8px;
   text-decoration: none; font-weight: 600;
   border: none; font: inherit; cursor: pointer;
