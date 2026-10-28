@@ -161,3 +161,24 @@ footer {
   main { padding: 0; }
   .card { border-color: #ccc; }
 }
+
+/* Entrées cliquables du CV */
+.timeline a.entry {
+  display: block; text-decoration: none; color: inherit;
+  margin: -8px -12px; padding: 8px 12px; border-radius: 8px;
+}
+.timeline a.entry:hover { background: var(--accent-soft); }
+.timeline a.entry h3 { color: var(--text); }
+.more { color: var(--accent); font-size: .9rem; font-weight: 600; }
+
+/* Pages de détail */
+.back { display: inline-block; margin-bottom: 24px; text-decoration: none; font-weight: 600; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); margin: 0 0 32px; }
+.meta strong { color: var(--text); font-weight: 600; }
+.detail ul { margin: 0; padding-left: 20px; }
+.detail li { margin-bottom: 6px; }
+.pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; flex-wrap: wrap; }
+.pager a { text-decoration: none; font-weight: 600; }
+a.card { text-decoration: none; color: inherit; transition: border-color .15s; }
+a.card:hover { border-color: var(--accent); }
+a.card h3 { color: var(--accent); }
