@@ -182,3 +182,19 @@ footer {
 a.card { text-decoration: none; color: inherit; transition: border-color .15s; }
 a.card:hover { border-color: var(--accent); }
 a.card h3 { color: var(--accent); }
+
+/* Documents */
+.docs { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.doc {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; text-decoration: none; color: inherit; transition: border-color .15s;
+}
+.doc:hover { border-color: var(--accent); }
+.doc img {
+  width: 100%; height: 220px; object-fit: cover; object-position: top;
+  background: #fff; border-bottom: 1px solid var(--border);
+}
+.doc div { padding: 16px; }
+.doc h3 { margin: 0 0 4px; font-size: 1rem; }
+.doc p { margin: 0 0 8px; color: var(--muted); font-size: .9rem; }
