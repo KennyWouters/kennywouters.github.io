@@ -1,13 +1,13 @@
 :root {
   /* Ton chaud « papier » plutôt qu'un blanc pur, accent bleu-vert profond */
-  --bg: #f4efe7;
-  --surface: #fbf8f3;
+  --bg: #ebe3d5;
+  --surface: #f5efe5;
   --text: #1d2228;
   --muted: #5b5f66;
   --accent: #0f6b6b;
   --accent-soft: #dde9e5;
   --on-accent: #ffffff;
-  --border: #e4dbcd;
+  --border: #ddd2c0;
   --radius: 14px;
   --max: 880px;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -109,7 +109,7 @@ main { flex: 1; padding: 48px 0; }
   font-size: 2.6rem; font-weight: 700; flex-shrink: 0;
 }
 .hero h1 { margin: 0 0 4px; font-size: 2.2rem; line-height: 1.2; }
-.hero .role { margin: 0 0 12px; color: var(--accent); font-weight: 600; font-size: 1.15rem; }
+.hero h1 + p { margin-top: 12px; }
 .hero p { margin: 0; color: var(--muted); }
 
 h1, h2, h3, .brand, .avatar { font-family: var(--font-title); letter-spacing: -0.015em; }
@@ -122,6 +122,7 @@ a.link-more { font-weight: 600; text-decoration: none; }
 a.link-more:hover { text-decoration: underline; }
 .grid.compact { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
 .lead { color: var(--muted); margin: 0 0 32px; }
+.lead.strong { color: var(--text); font-size: 1.2rem; font-weight: 500; }
 
 /* Cards */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
