@@ -35,28 +35,33 @@
       <div id="sent" class="notice hidden" role="status">
         Merci, votre message a bien été envoyé. Je reviens vers vous au plus vite.
       </div>
+      <div id="failed" class="notice hidden" role="alert">
+        L'envoi n'a pas abouti. Réessayez dans quelques minutes ou écrivez-moi directement à
+        <a href="mailto:kenny.wouters2@gmail.com">kenny.wouters2@gmail.com</a>.
+      </div>
 
-      <!-- Envoi via FormSubmit (https://formsubmit.co) : aucun serveur nécessaire. -->
-      <form action="https://formsubmit.co/kenny.wouters2@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Nouveau message depuis le site">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" id="next">
-        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
+      <!-- Envoi via Web3Forms (https://web3forms.com) : aucun serveur nécessaire.
+           La clé d'accès est publique par conception, elle ne sert qu'à envoyer vers mon adresse. -->
+      <form id="contact" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="49d22d5f-1606-4e06-b634-5dd38b51aad9">
+        <input type="hidden" name="from_name" value="Portfolio kennywouters.github.io">
+        <input type="hidden" name="redirect" id="next">
+        <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
 
         <label><span>Nom <span class="req" aria-hidden="true">*</span></span>
-          <input type="text" name="nom" required autocomplete="name">
+          <input type="text" name="name" required autocomplete="name">
         </label>
         <label><span>Email <span class="req" aria-hidden="true">*</span></span>
           <input type="email" name="email" required autocomplete="email">
         </label>
         <label><span>Sujet <span class="req" aria-hidden="true">*</span></span>
-          <input type="text" name="sujet" required>
+          <input type="text" name="subject" required>
         </label>
         <label><span>Message <span class="req" aria-hidden="true">*</span></span>
           <textarea name="message" required></textarea>
         </label>
         <p class="form-note"><span class="req" aria-hidden="true">*</span> Champs obligatoires</p>
-        <div><button class="btn" type="submit">Envoyer</button></div>
+        <div><button class="btn" type="submit" id="send">Envoyer</button></div>
       </form>
     </div>
   </main>
@@ -71,6 +76,25 @@
     if (new URLSearchParams(location.search).has("envoye")) {
       document.getElementById("sent").classList.remove("hidden");
     }
+    // Envoi sans quitter la page ; sans JavaScript, le formulaire revient ici via « redirect ».
+    var form = document.getElementById("contact");
+    var send = document.getElementById("send");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      document.getElementById("sent").classList.add("hidden");
+      document.getElementById("failed").classList.add("hidden");
+      send.disabled = true;
+      send.textContent = "Envoi…";
+      fetch(form.action, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) })
+        .then(function (response) { return response.json(); })
+        .then(function (result) {
+          if (!result.success) throw new Error(result.message);
+          form.reset();
+          document.getElementById("sent").classList.remove("hidden");
+        })
+        .catch(function () { document.getElementById("failed").classList.remove("hidden"); })
+        .finally(function () { send.disabled = false; send.textContent = "Envoyer"; });
+    });
     // Un champ obligatoire rempli uniquement d'espaces est refusé.
     document.querySelectorAll("form [required]").forEach(function (field) {
       field.addEventListener("input", function () {

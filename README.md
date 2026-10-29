@@ -12,9 +12,10 @@ Chaque `git push` sur `main` met le site à jour.
 | `becode.html`, `tuyauterie.html`, `it-essentials.html`, `roggemans.html`, `interim.html`, `saint-luc.html` | pages de détail des postes et formations (« Ce que j'ai fait », « Ce que j'ai appris », liens précédent / suivant) |
 | `projets.html` | projets de développement (le plus récent en premier) |
 | `documents.html` | attestations et certificats, affichés dans une visionneuse |
-| `contact.html` | formulaire de contact (envoi par email via [FormSubmit](https://formsubmit.co)) |
+| `contact.html` | formulaire de contact (envoi par email via [Web3Forms](https://web3forms.com), sans quitter la page) |
 
-Le premier envoi du formulaire déclenche un email d'activation de FormSubmit à confirmer une seule fois.
+Les messages arrivent sur l'adresse liée à la clé d'accès Web3Forms (champ `access_key` de `contact.html`, publique
+par conception). Pour changer d'adresse, demander une nouvelle clé sur web3forms.com.
 
 ## Structure
 
