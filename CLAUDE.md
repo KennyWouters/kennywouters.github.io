@@ -14,6 +14,8 @@ la structure et la façon d'ajouter du contenu.
 - Les pages contiennent des espaces insécables (U+00A0, typographie française) : un remplacement de texte qui
   contient « espace + : » ou « · » doit les reproduire, sinon il ne trouve rien.
 - Certificats : listes de `cv.html` et `documents.html` classées par date (plus récent d'abord), dates au format `MM/AAAA`.
+- CV imprimé (`@media print` en fin de `assets/style.css`) : fond blanc, accent bleu-vert, **deux pages A4 maximum** ;
+  le nom et les coordonnées n'apparaissent qu'à l'impression (classe `print-only`, l'inverse de `no-print`).
 - La rose en braille en commentaire au début de `index.html` est la signature de l'auteur : la conserver telle quelle.
 
 ## Vérification

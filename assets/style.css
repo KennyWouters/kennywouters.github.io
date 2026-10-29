@@ -217,13 +217,6 @@ footer {
   .grid.compact .card { padding: 14px 16px; }
 }
 
-@media print {
-  header, footer, .actions, .no-print, .theme-toggle { display: none !important; }
-  body { background: #fff; color: #000; }
-  main { padding: 0; }
-  .card { border-color: #ccc; }
-}
-
 /* Entrées cliquables du CV */
 .timeline a.entry {
   display: block; text-decoration: none; color: inherit;
@@ -311,4 +304,56 @@ a.card h3 { color: var(--accent); }
 @media (max-width: 640px) {
   .project { grid-template-columns: 1fr; }
   .project-visual { min-height: 160px; }
+}
+
+/* Impression (CV en PDF) : fond blanc, accent bleu-vert, tient sur deux pages A4 */
+.print-only { display: none; }
+
+@page { size: A4; margin: 14mm 16mm; }
+
+@media print {
+  /* Couleurs du thème clair, même si le visiteur est en mode sombre (spécificité plus forte que les thèmes) */
+  :root:not(#print) {
+    --text: #1d2228;
+    --muted: #4f545b;
+    --accent: #0f6b6b;
+    --accent-soft: #e3eeea;
+    --border: #d5dcda;
+  }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  header, footer, .actions, .no-print, .theme-toggle { display: none !important; }
+  .print-only { display: inline; }
+
+  body { background: #fff; color: var(--text); font-size: 10pt; line-height: 1.4; }
+  main { padding: 0; }
+  .container { max-width: none; padding: 0; }
+  a { color: inherit; text-decoration: none; }
+
+  h1.page-title { font-size: 24pt; color: var(--accent); margin: 0 0 4px; }
+  .lead { margin: 0 0 6px; font-size: 10pt; }
+  h2 {
+    font-size: 13pt; color: var(--accent); margin: 16px 0 8px;
+    padding-bottom: 3px; border-bottom: 1.5px solid var(--accent);
+    break-after: avoid;
+  }
+
+  .timeline { border-left-color: var(--accent-soft); }
+  .timeline li { padding: 0 0 8px 18px; break-inside: avoid; }
+  .timeline li::before { left: -6px; top: 4px; width: 10px; height: 10px; border-color: #fff; }
+  .timeline a.entry { margin: 0; padding: 0; }
+  .timeline .date { color: var(--accent); font-size: 8.5pt; }
+  .timeline h3 { font-size: 10.5pt; margin: 0; }
+  .timeline p { font-size: 9.5pt; }
+
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .grid.compact { grid-template-columns: repeat(3, 1fr); }
+  .card {
+    background: var(--accent-soft); border: none; border-left: 3px solid var(--accent);
+    border-radius: 6px; padding: 6px 10px; break-inside: avoid;
+  }
+  .card h3 { font-size: 9.5pt; margin: 0 0 2px; }
+  .card p { font-size: 8.5pt; }
+
+  .tags { gap: 5px; }
+  .tags li { font-size: 8.5pt; padding: 2px 9px; }
 }

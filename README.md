@@ -8,7 +8,7 @@ Chaque `git push` sur `main` met le site à jour.
 | Fichier | Contenu |
 |---|---|
 | `index.html` | accueil / présentation, disponibilités |
-| `cv.html` | CV (imprimable en PDF) ; chaque expérience ou formation renvoie à sa page de détail |
+| `cv.html` | CV (imprimable en PDF : deux pages A4 en couleur, avec nom et coordonnées) ; chaque expérience ou formation renvoie à sa page de détail |
 | `becode.html`, `tuyauterie.html`, `it-essentials.html`, `roggemans.html`, `interim.html`, `saint-luc.html` | pages de détail des postes et formations (« Ce que j'ai fait », « Ce que j'ai appris », liens précédent / suivant) |
 | `projets.html` | projets de développement (le plus récent en premier) |
 | `documents.html` | attestations et certificats, affichés dans une visionneuse |
