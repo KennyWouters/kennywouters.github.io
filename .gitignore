@@ -1,0 +1,5 @@
+.DS_Store
+.idea/
+
+# Claude Code instructions specific to this machine
+CLAUDE.local.md
