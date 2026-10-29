@@ -7,7 +7,7 @@
   <meta name="description" content="Contacter Kenny Wouters par email.">
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600|plus-jakarta-sans:600,700,800&display=swap">
-  <link rel="stylesheet" href="assets/style.css?v=6">
+  <link rel="stylesheet" href="assets/style.css?v=7">
   <script src="assets/theme.js?v=1"></script>
 </head>
 <body>
@@ -43,18 +43,19 @@
         <input type="hidden" name="_next" id="next">
         <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
 
-        <label>Nom
+        <label><span>Nom <span class="req" aria-hidden="true">*</span></span>
           <input type="text" name="nom" required autocomplete="name">
         </label>
-        <label>Email
+        <label><span>Email <span class="req" aria-hidden="true">*</span></span>
           <input type="email" name="email" required autocomplete="email">
         </label>
-        <label>Sujet
+        <label><span>Sujet <span class="req" aria-hidden="true">*</span></span>
           <input type="text" name="sujet" required>
         </label>
-        <label>Message
+        <label><span>Message <span class="req" aria-hidden="true">*</span></span>
           <textarea name="message" required></textarea>
         </label>
+        <p class="form-note"><span class="req" aria-hidden="true">*</span> Champs obligatoires</p>
         <div><button class="btn" type="submit">Envoyer</button></div>
       </form>
     </div>
@@ -70,6 +71,12 @@
     if (new URLSearchParams(location.search).has("envoye")) {
       document.getElementById("sent").classList.remove("hidden");
     }
+    // Un champ obligatoire rempli uniquement d'espaces est refusé.
+    document.querySelectorAll("form [required]").forEach(function (field) {
+      field.addEventListener("input", function () {
+        field.setCustomValidity(field.value && !field.value.trim() ? "Veuillez remplir ce champ." : "");
+      });
+    });
   </script>
 </body>
 </html>
