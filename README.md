@@ -3,6 +3,15 @@
 Site vitrine statique (HTML/CSS, sans build ni dépendance) publié avec GitHub Pages : https://kennywouters.github.io/
 Chaque `git push` sur `main` met le site à jour.
 
+## Services
+
+| Service | Rôle |
+|---|---|
+| [GitHub](https://github.com/KennyWouters/kennywouters.github.io) | Dépôt du code et hébergement (GitHub Pages, mise à jour à chaque push sur `main`) |
+| [Web3Forms](https://web3forms.com) | Envoi par email des messages du formulaire de contact |
+| [GoatCounter](https://www.goatcounter.com) | Statistiques de visites, privées et sans cookie |
+| [Bunny Fonts](https://fonts.bunny.net) | Polices d'écriture |
+
 ## Pages
 
 | Fichier | Contenu |
@@ -16,6 +25,9 @@ Chaque `git push` sur `main` met le site à jour.
 
 Les messages arrivent sur l'adresse liée à la clé d'accès Web3Forms (champ `access_key` de `contact.html`, publique
 par conception). Pour changer d'adresse, demander une nouvelle clé sur web3forms.com.
+
+Visites comptées avec [GoatCounter](https://www.goatcounter.com) (sans cookie, donc sans bannière de consentement) :
+script dans le `<head>` de chaque page, statistiques privées sur https://exokayn.goatcounter.com (rien n'est affiché sur le site).
 
 ## Structure
 

@@ -16,6 +16,8 @@ la structure et la façon d'ajouter du contenu.
 - Certificats : listes de `cv.html` et `documents.html` classées par date (plus récent d'abord), dates au format `MM/AAAA`.
 - CV imprimé (`@media print` en fin de `assets/style.css`) : fond blanc, accent bleu-vert, **deux pages A4 maximum** ;
   le nom et les coordonnées n'apparaissent qu'à l'impression (classe `print-only`, l'inverse de `no-print`).
+- Statistiques GoatCounter : le script `exokayn.goatcounter.com` doit figurer dans le `<head>` de toute nouvelle page ;
+  les chiffres restent privés (pas de compteur visible ni de statistiques publiques).
 - La rose en braille en commentaire au début de `index.html` est la signature de l'auteur : la conserver telle quelle.
 
 ## Vérification
